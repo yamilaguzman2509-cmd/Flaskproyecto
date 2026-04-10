@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro-Curso: Capa de Transporte OSI</title>
+    <!--las llaves son el motor de plantillas Jinja2-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Capa de Transporte (Capa 4)</h1>
+            <p class="subtitle">Modelo OSI: Del origen al destino</p>
+        </header>
+
+        <main>
+            <section class="card info">
+                <h2>1. ¿Qué hace la Capa 4?</h2>
+                <p>Su función principal es la entrega confiable de datos entre dos dispositivos de extremo a extremo. Se encarga de la segmentación y el control de flujo.</p>
+                <ul class="concept-list">
+                    <li>Protocolos:TCP y UDP</li>
+                    <li>Unidad de Datos (PDU):Segmento</li>
+                    <li>Direccionamiento:Puertos (ej. 80 para HTTP)</li>
+                </ul>
+            </section>
+
+            <section class="card simulation">
+                <h2>2. Simulación: TCP vs UDP</h2>
+                <p>Imagina que envías un mensaje. ¿Necesitas confirmación (TCP) o velocidad (UDP)?</p>
+                
+                <div class="boton__sumulacion">
+                    <button class="btn-sim" id="btn-tcp">Simular TCP (Confiable)</button>
+                    <button class="btn-sim" id="btn-udp">Simular UDP (Rápido)</button>
+                </div>
+                
+                <div class="salida" id="resultado">
+                    <em>Haz clic en un botón para ver la lógica de transporte.</em>
+                </div>
+            </section>
+
+            <section class="card quiz">
+                <h2>3. Validación de Conocimiento</h2>
+                <p>¿Qué protocolo usarías para una transmisión de video en vivo (streaming) donde un cuadro perdido no es crítico?</p>
+                
+                <div class="quiz-options">
+                    <button class="btn-option" data-correct="false">TCP</button>
+                    <button class="btn-option" data-correct="true">UDP</button>
+                </div>
+                
+                <p id="quiz-feedback" class="feedback-text"></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
